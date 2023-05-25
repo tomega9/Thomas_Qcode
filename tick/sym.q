@@ -1,0 +1,3 @@
+Feed1:([]time:`timespan$();sym:`symbol$();batchId:`long$();accountRef:`long$();uniqueID:`long$();instrumentType:`symbol$();marketname:`symbol$();RA:`float$();R:`float$();NP:`long$();Period:`long$();Year:`long$());
+Feed2:([]time:`timespan$();sym:`symbol$();batchId:`long$();accountRef:`long$();uniqueID:`long$();instrumentType:`symbol$();marketname:`symbol$();RA:`float$();R:`float$();NP:`long$();Period:`long$();Year:`long$());
+Feed3:([]time:`timespan$();sym:`symbol$();accountRef:`long$();modofiedDate:`date$();billingCurrency:`symbol$();accountGroup:`symbol$();RA:`float$();R:`float$();NP:`long$();Period:`long$();Year:`long$())
