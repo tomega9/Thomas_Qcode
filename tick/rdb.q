@@ -8,15 +8,11 @@ h_tp:hopen 5010;
 Feed3US:Feed3;
 
 
-
-//Feed1avg:select accavg:avg EURUSDprice by accountRef from `EURUSDFeed1;
-
-
 upd:{[t;d]  //if[t~`Feed1;`EURUSDFeed1 upsert d;update USDprice:((((R-RA)*NP*Period)%(1*Year))*(1%(1+R*(Period%Year))))*1.08 from `EURUSDFeed1];
 
 			//if[t~`Feed2;`GBPUSDFeed2 upsert d;update USDprice:((((R-RA)*NP*Period)%(1*Year))*(1%(1+R*(Period%Year))))*1.24 from `GBPUSDFeed2];
 
-                             if[t~`Feed3;`Feed3US upsert d;update USDprice:((((R-RA)*NP*Period)%(1*Year))*(1%(1+R*(Period%Year)))) from `Feed3US];
+                             if[t~`Feed3;`Feed3US upsert d;update USDprice:((((R-RA)*NP*Period)%(1*Year))*(1%(1+R*(Period%Year)))) from `Feed3US];  //Feed3 for USD and calculate the price 
                     
                          //   if[t~`Feed2;`GBPUSDFeed2 upsert d;Feed2avg::select accavg:avg USDprice by accountRef from `GBPUSDFeed2];  
 
@@ -34,9 +30,9 @@ upd:{[t;d]  //if[t~`Feed1;`EURUSDFeed1 upsert d;update USDprice:((((R-RA)*NP*Per
          
                                          // USDpriceavg::select avg USDprice by accountRef from USDpriceall;
 
-                                              USDpriceavg3::select avg USDprice by accountRef from Feed3US;
+                                              USDpriceavg3::select avg USDprice by accountRef from Feed3US;    //create table avg price by accountRef 
                                                  
-                                                 USD35::select avg USDprice by 5 xbar time.minute,accountRef from Feed3US;
+                                                 USD35::select avg USDprice by 5 xbar time.minute,accountRef from Feed3US;        //publish avg price data every 5 min 
 
                                            //USD5::select avg USDprice by 5 xbar time.minute,accountRef from USDpriceall;
  
